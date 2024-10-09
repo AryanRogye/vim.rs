@@ -63,7 +63,7 @@ impl Terminal {
         enable_raw_mode()?;
         stdout().execute(MoveTo(0,0))?;
         stdout().execute(EnableBlinking)?;
-        stdout().execute(Print(format!("{}", content.clone())));
+        stdout().execute(Print(format!("{}", content.clone())))?;
         if let Err(e) = self.print_events(buf) {
             return Err(e)
         }
