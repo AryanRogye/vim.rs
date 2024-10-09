@@ -58,11 +58,12 @@ impl Terminal {
         Ok(())
     }
     
-    pub fn setup(&self, buf: Buffer) -> Result<(), Box<dyn Error>> {
+    pub fn setup(&self, buf: Buffer, content : String) -> Result<(), Box<dyn Error>> {
         stdout().execute(Clear(ClearType::All))?;
         enable_raw_mode()?;
         stdout().execute(MoveTo(0,0))?;
         stdout().execute(EnableBlinking)?;
+        stdout().execute(Print(format!("{}", content.clone())));
         if let Err(e) = self.print_events(buf) {
             return Err(e)
         }
