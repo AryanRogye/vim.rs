@@ -1,4 +1,4 @@
-use std::iter;
+use std::{error::Error, iter};
 
 use super::ring_buffer::RingBuffer;
 
@@ -13,5 +13,10 @@ impl Buffer {
             command_history : RingBuffer::new(5),
             file_lines      : Vec::new(),
         }
+    }
+
+    pub fn configure_lines(&self, content : String) -> Result<(), Box<dyn Error>>{
+        // Basically Each line needs to get stored in file_lines
+        Ok(())
     }
 }

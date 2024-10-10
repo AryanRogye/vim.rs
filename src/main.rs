@@ -2,6 +2,7 @@ mod buffer;
 mod terminal;
 mod errors;
 mod command;
+mod list;
 
 use std::{fs, env, process::exit, path::Path};
 use buffer::buffer::Buffer;
@@ -18,7 +19,6 @@ fn main() -> std::io::Result<()> {
             return Ok(())
         }
     }
-    let buf : Buffer = Buffer::new();
     let mut contents : String = "".to_string();
     match args.len() {
         1 => {
@@ -45,7 +45,9 @@ fn main() -> std::io::Result<()> {
         }
     }
     let terminal : Terminal = Terminal;
-    if let Err(e) = terminal.setup(buf, contents) {
+    let buf : Buffer = Buffer::new();
+    buf.configure_lines(contents).expect("Count Not Parse File");
+    if let Err(e) = terminal.setup(buf) {
         println!("Error: {}", e);
     }
     Ok(())
