@@ -22,3 +22,5 @@ cmake_install.cmake
 *.log
 
 /compile_commands.json
+
+src/list/build/Makefile
