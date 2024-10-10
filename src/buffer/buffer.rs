@@ -1,4 +1,4 @@
-use std::{error::Error, iter};
+use std::error::Error;
 
 use super::ring_buffer::RingBuffer;
 
@@ -6,6 +6,10 @@ pub struct Buffer {
     command_history : RingBuffer,
     file_lines      : Vec<String>,
 }
+
+// file_lines is gonna be a implimentation of a LinkedList<String>
+// the LinkedList is coming from
+// the cpp file in list/Linked_list.cpp and Linked_list.hpp
 
 impl Buffer {
     pub fn new() -> Self {

@@ -11,8 +11,7 @@ use crossterm::{
 
 use crate::buffer::buffer::Buffer;
 use crate::command::Command;
-pub struct Terminal;
-impl Terminal {
+pub struct Terminal; impl Terminal {
 
     fn handle_keys(&self, event_code: KeyCode) -> Result<(), Box<dyn Error>>{
         // Basic Movement

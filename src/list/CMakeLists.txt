@@ -7,6 +7,7 @@ project(LinkedListProject VERSION 1.0)
 # Set the C++ standard to C++11 (or later)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # Add library for the linked list
 add_library(linked_list_lib STATIC linked_list.cpp)
