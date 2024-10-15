@@ -19,3 +19,9 @@ bi: build_release install
 # Clean the build
 clean:
 	cargo clean
+
+test:
+	cargo test -- --nocapture
+
+wtest:
+	RUSTFLAGS="-Awarnings" cargo test -- --nocapture
